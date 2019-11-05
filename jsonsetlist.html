@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON Setlist</title>
+<style type="text/css">
+	body,html {font-size: 12px; font-family: helvetica;}
+</style>
+</head>
+<body>
+  Serialized <br/>
+	<script language="javascript">
+    setlist = [
+    {'artist' : 'Demi Lovato',
+    'title'  : 'Sorry Not Sorry',
+    'genre'	 : 'Pop',
+    'year'		 :  2017},
+    {'artist' : 'Lizzo',
+    'title'  : 'Juice',
+    'genre'	 : 'Pop',
+    'year'		 :  2019},
+    {'artist' : 'Drake',
+    'title'  : "God's Plan",
+    'genre'	 : 'Pop',
+    'year'		 :  2018},
+    {'artist' : 'Jay Sean',
+    'title'  : 'With You',
+    'genre'	 : 'R&B',
+    'year'		 :  2019},
+    {'artist' : 'Jason Derulo',
+    'title'  : 'Swalla',
+    'genre'	 : 'Pop',
+    'year'		 :  2019},
+    {'artist' : 'Jason Derulo',
+    'title'  : 'In My Head',
+    'genre'	 : 'R&B',
+    'year'		 :  2010},
+    {'artist' : 'Lorde',
+    'title'  : 'Love Club',
+    'genre'	 : 'Pop',
+    'year'		 :  2013},
+    {'artist' : 'Ariana Grande',
+    'title'  : "Don't Call Me Angel",
+    'genre'	 : 'Pop',
+    'year'		 :  2019},
+    {'artist' : 'Selena Gomes',
+    'title'  : 'Lose You To Love Me',
+    'genre'	 : 'Pop',
+    'year'		 :  2019},
+    {'artist' : 'Post Malone',
+    'title'  : 'Circles',
+    'genre'	 : 'Rap',
+    'year'		 :  2019}
+            ]
+s = JSON.stringify(setlist);
+document.write (s + "<br/>" + "<br/>")
+
+for (i=0; i<setlist.length; i++){
+  document.write ("Song: " + setlist[i].title + "<br>" + "Artist: " + setlist[i].artist + "<br>" + "Genre: " + setlist[i].genre + "<br>" + "Released in " +  setlist[i].year + "<br>" + "<br>");
+}
+var info = JSON.parse(setlist);
+document.getElementById("text").innerHTML = info.title;
+
+function findgenre(){
+  genre = document.getElementById("genre").value;
+  for (i=0; i<setlist.length; i++){
+    if (setlist[i].genre == genre)
+      document.write(setlist[i].title + "<br/>");
+  }
+}
+</script>
+<form>
+   Please Pick a Genre
+   <select id="genre">
+     <option value="Rap">Rap</option>
+   	 <option value="R&B">R&B</option>
+   	 <option value="Pop">Pop</option>
+    </select>
+    <button onclick="findgenre()">Submit</button>
+</form>
+</body>
+</html>
